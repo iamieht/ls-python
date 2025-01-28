@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PY100/1.Data_Types.md",
+                "file": "PY100/2.Basic_Operations.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.Data_Types"
+              "title": "2.Basic_Operations"
             }
           }
         ]
@@ -163,6 +163,7 @@
   "active": "016f18bdea7d4560",
   "lastOpenFiles": [
     "PY100/1.Data_Types.md",
+    "PY100/2.Basic_Operations.md",
     "PY100",
     "PY100",
     "Welcome.md"
