@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PY100/3.Variables.md",
+                "file": "PY100/4.Input_Output.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3.Variables"
+              "title": "4.Input_Output"
             }
           }
         ]
@@ -162,8 +162,9 @@
   },
   "active": "016f18bdea7d4560",
   "lastOpenFiles": [
-    "PY100/2.Basic_Operations.md",
     "PY100/3.Variables.md",
+    "PY100/4.Input_Output.md",
+    "PY100/2.Basic_Operations.md",
     "PY100/1.Data_Types.md",
     "PY100",
     "PY100",
