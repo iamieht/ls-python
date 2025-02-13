@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PY100/8.Using_Collections.md",
+                "file": "PY10X/8.Using_Collections.md",
                 "mode": "source",
                 "source": false
               },
@@ -161,19 +161,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "016f18bdea7d4560",
+  "active": "fe8be1d9e45ee854",
   "lastOpenFiles": [
-    "PY100/7.Intro_to_Collections.md",
-    "PY100/8.Using_Collections.md",
-    "PY100/9.Loops_and_Iterating.md",
-    "PY100/5.Functions_and_Methods.md",
-    "PY100/6.Flow_Control.md",
-    "PY100/4.Input_Output.md",
-    "PY100/3.Variables.md",
-    "PY100/2.Basic_Operations.md",
-    "PY100/1.Data_Types.md",
-    "PY100",
-    "PY100",
+    "PY10X/7.Intro_to_Collections.md",
+    "PY10X/8.Using_Collections.md",
+    "PY10X/9.Loops_and_Iterating.md",
+    "PY10X/5.Functions_and_Methods.md",
+    "PY10X/6.Flow_Control.md",
+    "PY10X/4.Input_Output.md",
+    "PY10X/3.Variables.md",
+    "PY10X/2.Basic_Operations.md",
+    "PY10X/1.Data_Types.md",
+    "PY10X",
+    "PY10X",
     "Welcome.md"
   ]
 }
