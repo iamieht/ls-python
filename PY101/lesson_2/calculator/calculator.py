@@ -2,6 +2,7 @@
 # Ask the user for another calculation
 # Extracting messages in the program to a configuration file.
 # Internationalization
+# Allowing Floating-Point Numbers
 import os
 import json
 
@@ -21,7 +22,7 @@ def messages(message, lang='en'):
 
 def invalid_number(number_str):
     try:
-        int(number_str)
+        float(number_str)
     except ValueError:
         return True
 
@@ -56,15 +57,15 @@ while True:
 
     match operation:
         case '1':
-            output = int(number1) + int(number2)
+            output = float(number1) + float(number2)
         case '2':
-            output = int(number1) - int(number2)
+            output = float(number1) - float(number2)
         case '3':
-            output = int(number1) * int(number2)
+            output = float(number1) * float(number2)
         case '4':
-            output = int(number1) / int(number2)
+            output = float(number1) / float(number2)
 
-    prompt('result') 
+    prompt('result')
     print(f"{output}")
     print()
     prompt('calculation')
