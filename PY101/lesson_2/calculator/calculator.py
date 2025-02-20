@@ -1,15 +1,22 @@
 # New features
 # Ask the user for another calculation
 # Extracting messages in the program to a configuration file.
+# Internationalization
 import os
 import json
+
+LANG = 'en'
 
 # Load the messages from the JSON file
 with open('calculator_messages.json', 'r') as file:
     MESSAGES = json.load(file)
 
-def prompt(message):
+def prompt(message_key):
+    message = messages(message_key, LANG)
     print(f'==> {message}')
+
+def messages(message, lang='en'):
+    return MESSAGES[lang][message]
 
 
 def invalid_number(number_str):
@@ -21,31 +28,30 @@ def invalid_number(number_str):
     return False
 
 
-prompt(MESSAGES['welcome'])
+prompt('welcome')
 print()
 
 while True:
-    prompt(MESSAGES['number1'])
+    prompt('number1')
     number1 = input()
 
     while invalid_number(number1):
-        prompt(MESSAGES['invalid_number'])
+        prompt('invalid_number')
         number1 = input()
 
-    prompt(MESSAGES['number2'])
+    prompt('number2')
     number2 = input()
 
     while invalid_number(number2):
-        prompt(MESSAGES['invalid_number'])
+        prompt('invalid_number')
         number2 = input()
 
-    prompt("What operation would you like to perform?\n"
-        "1) Add 2) Subtract 3) Multiply 4) Divide")
+    prompt('operation')
 
     operation = input()
 
     while operation not in ['1', '2', '3', '4']:
-        prompt(MESSAGES['operation'])
+        prompt('invalid_operation')
         operation = input()
 
     match operation:
@@ -58,9 +64,10 @@ while True:
         case '4':
             output = int(number1) / int(number2)
 
-    prompt(f"The result is : {output}")
+    prompt('result') 
+    print(f"{output}")
     print()
-    prompt(MESSAGES['calculation'])
+    prompt('calculation')
     another_calculation = input()
 
     if another_calculation == 'n' or another_calculation == 'N':
