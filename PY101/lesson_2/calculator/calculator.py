@@ -1,6 +1,12 @@
 # New features
 # Ask the user for another calculation
+# Extracting messages in the program to a configuration file.
 import os
+import json
+
+# Load the messages from the JSON file
+with open('calculator_messages.json', 'r') as file:
+    MESSAGES = json.load(file)
 
 def prompt(message):
     print(f'==> {message}')
@@ -15,22 +21,22 @@ def invalid_number(number_str):
     return False
 
 
-prompt("Welcome to Calculator!")
+prompt(MESSAGES['welcome'])
 print()
 
 while True:
-    prompt("What's the first number?")
+    prompt(MESSAGES['number1'])
     number1 = input()
 
     while invalid_number(number1):
-        prompt("Hmm... that doesn't look like a valid number.")
+        prompt(MESSAGES['invalid_number'])
         number1 = input()
 
-    prompt("What's the second number?")
+    prompt(MESSAGES['number2'])
     number2 = input()
 
     while invalid_number(number2):
-        prompt("Hmm... that doesn't look like a valid number.")
+        prompt(MESSAGES['invalid_number'])
         number2 = input()
 
     prompt("What operation would you like to perform?\n"
@@ -39,7 +45,7 @@ while True:
     operation = input()
 
     while operation not in ['1', '2', '3', '4']:
-        prompt('You must choose 1, 2, 3 or 4')
+        prompt(MESSAGES['operation'])
         operation = input()
 
     match operation:
@@ -54,7 +60,7 @@ while True:
 
     prompt(f"The result is : {output}")
     print()
-    prompt("Would you like to perform another calculation? (y/n)")
+    prompt(MESSAGES['calculation'])
     another_calculation = input()
 
     if another_calculation == 'n' or another_calculation == 'N':
