@@ -1,8 +1,8 @@
 {
     "en": {
         "welcome": "Welcome to Mortgage / Car Loan Calculator!",
-        "input_loan": "Loan Amount",
-        "input_loan_term": "Loan Term (years / months)",
-        "input_apr": "Interest Rate"
+        "input_loan": "Loan Amount:",
+        "input_loan_term": "Loan Term (years / months):",
+        "input_apr": "Interest Rate:"
     }
 }
