@@ -52,18 +52,22 @@ LANG = 'en'
 with open('mortgage_messages.json', 'r') as file:
     MESSAGES = json.load(file)
 
+def messages(message, lang='en'):
+    return MESSAGES[lang][message]
 
 def prompt(key):
     message = messages(key, LANG)
     print(f'==> {message}')
 
-
-def messages(message, lang='en'):
-    return MESSAGES[lang][message]
-
+def get_input(key, symbol):
+    message = messages(key, LANG)
+    return input(f"==> {message} {symbol}")
 
 def main():
     prompt('welcome')
+    # prompt('input_loan')
+    loan_amount = get_input('input_loan', '$')
+    print(loan_amount)
 
 
 main()
