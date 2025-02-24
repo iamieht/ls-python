@@ -43,3 +43,27 @@
 #   - Ask for Interest Rate (%)
 
 # Code
+import os
+import json
+
+LANG = 'en'
+
+# Load the messages from the JSON file
+with open('mortgage_messages.json', 'r') as file:
+    MESSAGES = json.load(file)
+
+
+def prompt(key):
+    message = messages(key, LANG)
+    print(f'==> {message}')
+
+
+def messages(message, lang='en'):
+    return MESSAGES[lang][message]
+
+
+def main():
+    prompt('welcome')
+
+
+main()
