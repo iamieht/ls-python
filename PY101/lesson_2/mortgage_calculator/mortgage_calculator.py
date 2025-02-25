@@ -49,7 +49,9 @@
 import os
 import json
 
+# Constants
 LANG = 'en'
+MONTHS_IN_YEAR = 12
 
 # Load the messages from the JSON file
 with open('mortgage_messages.json', 'r') as file:
@@ -98,6 +100,13 @@ def is_valid_apr(number):
     return is_valid_float(number) and float(number) <= 100
 
 
+def loan_term_months(loan_term):
+    years = int(loan_term[0])
+    months = int(loan_term[1])
+
+    return (years * MONTHS_IN_YEAR) + months
+
+
 def get_loan_amount():
     while True:
         loan_amount = get_input('input_loan', '$')
@@ -118,11 +127,34 @@ def get_apr():
             prompt('valid_interest_rate')
 
 
+def get_loan_term():
+    while True:
+        try:
+            years, months = get_input('input_loan_term', '⌛').split('/')
+            print(years, months)
+            break
+        except:
+            pass
+        # except ValueError:
+        #     prompt('valid_loan_term')
+        #     try:
+        #         years, months = get_input('input_loan_term', '⌛').split('/')
+        #     except ValueError:
+        #         prompt('valid_loan_term')
+
+        if is_valid_number(years) and is_valid_number(months):
+            return loan_term_months((years, months))
+        else:
+            prompt('valid_loan_term')
+
+
 def main():
     prompt('welcome')
     loan_amount = get_loan_amount()
+    loan_term = get_loan_term()
     interest_rate = get_apr()
     print(loan_amount)
+    print(loan_term)
     print(interest_rate)
 
 
