@@ -131,10 +131,9 @@ def get_loan_term():
     while True:
         try:
             years, months = get_input('input_loan_term', '⌛').split('/')
-            print(years, months)
-            break
         except:
-            pass
+            prompt('valid_loan_term')
+            continue
         # except ValueError:
         #     prompt('valid_loan_term')
         #     try:
