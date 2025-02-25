@@ -1,51 +1,3 @@
-# Problem
-# build a mortgage calculator (or car payment calculator -- it's the same thing) that determines the monthly payment assuming that interest is compounded monthly.
-
-# input
-#   - loan amount
-#   - APR = Annual Percentage Rate
-#   - loan duration
-# output
-#   - Monthly payment = loan_amount * (monthly_interest_rate / (1 - (1 + monthly_interest_rate) ** (-loan_duration_months)))
-# calculate
-#   - monthly_interest_rate (APR / 12)
-#   - loan duration in months
-
-# Examples / Test Cases
-# print(is_valid_int(1))
-# print(is_valid_int(-1))
-# print(is_valid_int('abc'))
-
-# Data Structures
-# - float
-# - strings
-
-# Algorithm
-# Create a .json file for the messages with internationalization support (en / es)
-# Create a function prompt to define a user prompt
-#   - use a message key to retrieve msg from .json file
-# Create a function to capture user input
-#   - get_input()
-# Create a function to check user input (amounts)
-#   - is_valid_amount()
-# Create a function to check user input (APR)
-#   - Ask for a %
-#   - is_valid_apr()
-# Create a function to check user input (loan duration)
-#   - is_valid_loan()
-# Create a function to calculate interest rate (monthly)
-#   - calculate_interest_rate()
-# Crete a function to calculate loan duration in months
-#   - calculate_loan_duration()
-# Create a function to calculate the mortgage (monthly payment)
-#   - calculate_mortgage()
-# Create a main function
-#   - print Welcome Screen
-#   - Ask for loan amount ($)
-#   - Ask for loan term (Years / Months)
-#   - Ask for Interest Rate (%)
-
-# Code
 import os
 import json
 
@@ -113,8 +65,8 @@ def get_loan_amount():
 
         if is_valid_number(loan_amount):
             return float(loan_amount)
-        else:
-            prompt('valid_number')
+
+        prompt('valid_number')
 
 
 def get_apr():
@@ -123,8 +75,8 @@ def get_apr():
 
         if is_valid_number(interest_rate) and is_valid_apr(interest_rate):
             return float(interest_rate)
-        else:
-            prompt('valid_interest_rate')
+
+        prompt('valid_interest_rate')
 
 
 def get_loan_term():
@@ -137,8 +89,8 @@ def get_loan_term():
 
         if is_valid_number(years) and is_valid_number(months):
             return loan_term_months((years, months))
-        else:
-            prompt('valid_loan_term')
+
+        prompt('valid_loan_term')
 
 
 def calculate_mpr(apr):
@@ -146,7 +98,9 @@ def calculate_mpr(apr):
 
 
 def mortgage_calculator(loan_amount, monthly_interest_rate, loan_term):
-    return (loan_amount * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**(-loan_term))))
+    return (loan_amount * (monthly_interest_rate /
+                           (1 - (1 + monthly_interest_rate) **
+                            (-loan_term))))
 
 ## Main function ##
 
