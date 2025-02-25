@@ -28,20 +28,22 @@ def get_input(key, symbol):
 
 def is_valid_int(number):
     try:
-        number = int(number)
+        int(number)
     except ValueError:
         return False
 
-    return number > 0
+    # return number > 0
+    return True
 
 
 def is_valid_float(number):
     try:
-        number = float(number)
+        float(number)
     except ValueError:
         return False
 
-    return number > 0
+    # return number > 0
+    return True
 
 
 def is_valid_number(number):
@@ -49,7 +51,7 @@ def is_valid_number(number):
 
 
 def is_valid_apr(number):
-    return is_valid_float(number) and float(number) <= 100
+    return is_valid_float(number) and 0 <= float(number) <= 100
 
 
 def loan_term_months(loan_term):
@@ -63,7 +65,7 @@ def get_loan_amount():
     while True:
         loan_amount = get_input('input_loan', '$')
 
-        if is_valid_number(loan_amount):
+        if is_valid_number(loan_amount) and is_valid_number(loan_amount) > 0:
             return float(loan_amount)
 
         prompt('valid_number')
@@ -122,10 +124,10 @@ def main():
     total_interest = total_payments - loan_amount
 
     # Output Results
-    print(f'Loan Amount = {loan_amount}')
-    print(f'Payment Every Month = {monthly_payment}')
-    print(f'Total of {loan_term} payments = {total_payments}')
-    print(f'Total interest = {total_interest}')
+    print(f'Loan Amount = {loan_amount:.2f}')
+    print(f'Payment Every Month = {monthly_payment:.2f}')
+    print(f'Total of {loan_term} payments = {total_payments:.2f}')
+    print(f'Total interest = {total_interest:.2f}')
 
 
 main()
