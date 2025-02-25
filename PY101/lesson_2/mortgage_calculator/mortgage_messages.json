@@ -2,9 +2,10 @@
     "en": {
         "welcome": "Welcome to Mortgage / Car Loan Calculator!",
         "input_loan": "Loan Amount:",
-        "input_loan_term": "Loan Term (years / months):",
+        "input_loan_term": "Loan Term (Years/Months [10/6]):",
         "input_apr": "Interest Rate:",
         "valid_number": "Hmm... that doesn't look like a valid positive number",
-        "valid_interest_rate": "Hmm... interest rate must be a number > 0 and <= 100"
+        "valid_interest_rate": "Hmm... interest rate must be a number > 0 and <= 100",
+        "valid_loan_term": "Hmm... that doesn't look like a valid loan term. The format is Year/Months or Year Months"
     }
 }
