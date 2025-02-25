@@ -12,6 +12,9 @@
 #   - loan duration in months
 
 # Examples / Test Cases
+# print(is_valid_int(1))
+# print(is_valid_int(-1))
+# print(is_valid_int('abc'))
 
 # Data Structures
 # - float
@@ -52,16 +55,44 @@ LANG = 'en'
 with open('mortgage_messages.json', 'r') as file:
     MESSAGES = json.load(file)
 
+### Helper Functions ####
+
+
 def messages(message, lang='en'):
     return MESSAGES[lang][message]
+
 
 def prompt(key):
     message = messages(key, LANG)
     print(f'==> {message}')
 
+
 def get_input(key, symbol):
     message = messages(key, LANG)
     return input(f"==> {message} {symbol}")
+
+
+def is_valid_int(number):
+    try:
+        number = int(number)
+    except ValueError:
+        return False
+
+    return number > 0
+
+
+def is_valid_float(float):
+    try:
+        number = float(number)
+    except ValueError:
+        return False
+
+    return number > 0
+
+
+def is_valid_number(number):
+    return is_valid_int or is_valid_float
+
 
 def main():
     prompt('welcome')
@@ -70,4 +101,4 @@ def main():
     print(loan_amount)
 
 
-main()
+# main()
