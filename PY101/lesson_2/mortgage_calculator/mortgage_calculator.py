@@ -131,15 +131,9 @@ def get_loan_term():
     while True:
         try:
             years, months = get_input('input_loan_term', '⌛').split('/')
-        except:
+        except ValueError:
             prompt('valid_loan_term')
             continue
-        # except ValueError:
-        #     prompt('valid_loan_term')
-        #     try:
-        #         years, months = get_input('input_loan_term', '⌛').split('/')
-        #     except ValueError:
-        #         prompt('valid_loan_term')
 
         if is_valid_number(years) and is_valid_number(months):
             return loan_term_months((years, months))
@@ -147,14 +141,37 @@ def get_loan_term():
             prompt('valid_loan_term')
 
 
+def calculate_mpr(apr):
+    return apr / MONTHS_IN_YEAR
+
+
+def mortgage_calculator(loan_amount, monthly_interest_rate, loan_term):
+    return (loan_amount * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**(-loan_term))))
+
+## Main function ##
+
+
 def main():
     prompt('welcome')
+
+    # User input
     loan_amount = get_loan_amount()
     loan_term = get_loan_term()
     interest_rate = get_apr()
-    print(loan_amount)
-    print(loan_term)
-    print(interest_rate)
+
+    # Calculations
+    annual_interest_rate = interest_rate / 100
+    monthly_interest_rate = calculate_mpr(annual_interest_rate)
+    monthly_payment = mortgage_calculator(
+        loan_amount, monthly_interest_rate, loan_term)
+    total_payments = monthly_payment * loan_term
+    total_interest = total_payments - loan_amount
+
+    # Output Results
+    print(f'Loan Amount = {loan_amount}')
+    print(f'Payment Every Month = {monthly_payment}')
+    print(f'Total of {loan_term} payments = {total_payments}')
+    print(f'Total interest = {total_interest}')
 
 
 main()
