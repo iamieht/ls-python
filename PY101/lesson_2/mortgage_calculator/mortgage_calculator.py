@@ -124,10 +124,10 @@ def main():
     total_interest = total_payments - loan_amount
 
     # Output Results
-    print(f'Loan Amount = {loan_amount:.2f}')
-    print(f'Payment Every Month = {monthly_payment:.2f}')
-    print(f'Total of {loan_term} payments = {total_payments:.2f}')
-    print(f'Total interest = {total_interest:.2f}')
+    print(f'Loan Amount = {loan_amount:,.2f}')
+    print(f'Payment Every Month = {monthly_payment:,.2f}')
+    print(f'Total of {loan_term} payments = {total_payments:,.2f}')
+    print(f'Total interest = {total_interest:,.2f}')
 
 
 main()
