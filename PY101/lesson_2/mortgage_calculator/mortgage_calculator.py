@@ -81,7 +81,7 @@ def is_valid_int(number):
     return number > 0
 
 
-def is_valid_float(float):
+def is_valid_float(number):
     try:
         number = float(number)
     except ValueError:
@@ -91,14 +91,24 @@ def is_valid_float(float):
 
 
 def is_valid_number(number):
-    return is_valid_int or is_valid_float
+    return is_valid_int(number) or is_valid_float(number)
+
+
+def get_loan_amount():
+    while True:
+        loan_amount = get_input('input_loan', '$')
+
+        if is_valid_number(loan_amount):
+            return float(loan_amount)
+        else:
+            prompt('valid_number')
 
 
 def main():
     prompt('welcome')
     # prompt('input_loan')
-    loan_amount = get_input('input_loan', '$')
+    loan_amount = get_loan_amount()
     print(loan_amount)
 
 
-# main()
+main()
