@@ -3,6 +3,7 @@
         "welcome": "Welcome to Mortgage / Car Loan Calculator!",
         "input_loan": "Loan Amount:",
         "input_loan_term": "Loan Term (years / months):",
-        "input_apr": "Interest Rate:"
+        "input_apr": "Interest Rate:",
+        "valid_number": "Hmm... that doesn't look like a valid positive number"
     }
 }
