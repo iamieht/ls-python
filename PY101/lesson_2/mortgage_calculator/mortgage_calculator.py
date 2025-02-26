@@ -12,6 +12,10 @@ with open('mortgage_messages.json', 'r') as file:
 ### Helper Functions ####
 
 
+def clear():
+    os.system('clear')
+
+
 def messages(message, lang='en'):
     return MESSAGES[lang][message]
 
@@ -104,11 +108,23 @@ def mortgage_calculator(loan_amount, monthly_interest_rate, loan_term):
                            (1 - (1 + monthly_interest_rate) **
                             (-loan_term))))
 
+
+def display_results(loan_amount, monthly_payment, loan_term, total_payments, total_interest):
+    # TO-DO: Use json to include this messages
+    print(f'Loan Amount = ${loan_amount:,.2f}')
+    print(f'Payment Every Month = ${monthly_payment:,.2f}')
+    print(f'Total of {loan_term} payments = ${total_payments:,.2f}')
+    print(f'Total interest = ${total_interest:,.2f}')
+
 ## Main function ##
 
 
 def main():
+    clear()
     prompt('welcome')
+    prompt('hr')
+    print()
+    # TO-DO: Add a language selector
 
     # User input
     loan_amount = get_loan_amount()
@@ -116,6 +132,7 @@ def main():
     interest_rate = get_apr()
 
     # Calculations
+    # TO-DO: Move this to a separate function
     annual_interest_rate = interest_rate / 100
     monthly_interest_rate = calculate_mpr(annual_interest_rate)
     monthly_payment = mortgage_calculator(
@@ -124,10 +141,8 @@ def main():
     total_interest = total_payments - loan_amount
 
     # Output Results
-    print(f'Loan Amount = {loan_amount:,.2f}')
-    print(f'Payment Every Month = {monthly_payment:,.2f}')
-    print(f'Total of {loan_term} payments = {total_payments:,.2f}')
-    print(f'Total interest = {total_interest:,.2f}')
+    display_results(loan_amount, monthly_payment, loan_term,
+                    total_payments, total_interest)
 
 
 main()
