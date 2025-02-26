@@ -6,6 +6,7 @@
         "input_apr": "Interest Rate:",
         "valid_number": "Hmm... that doesn't look like a valid positive number",
         "valid_interest_rate": "Hmm... interest rate must be a number > 0 and <= 100",
-        "valid_loan_term": "Hmm... that doesn't look like a valid loan term. The format is Year/Months or Year Months"
+        "valid_loan_term": "Hmm... that doesn't look like a valid loan term. The format is Year/Months or Year Months",
+        "hr": "----------------------------------------------------"
     }
 }
