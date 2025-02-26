@@ -1,14 +1,23 @@
 {
     "en": {
         "welcome": "Welcome to Mortgage / Car Loan Calculator!",
-        "input_loan": "Loan Amount:",
-        "input_loan_term": "Loan Term (Years/Months [10/6]):",
-        "input_apr": "Interest Rate:",
+        "input_loan": "Please introduce the Loan Amount (e.g. 100000): $",
+        "input_loan_term": "What is the Loan Term in Years/Months? (e.g. 10/6 = 10 Years 6 Months):",
+        "input_apr": "Please introduce the Interest Rate in % (e.g. 5 or 2.5): % ",
         "valid_number": "Hmm... that doesn't look like a valid positive number",
         "valid_interest_rate": "Hmm... interest rate must be a number > 0 and <= 100",
         "valid_loan_term": "Hmm... that doesn't look like a valid loan term. The format is Year/Months or Year Months",
         "hr": "----------------------------------------------------",
-        "another_calculation": "Would you like to perform another calculation? (y/n)",
-        "valid_answer": "Hmm... that doesn't look like a valid choice. Must choose 'y' or 'n'"
+        "another_calculation": "Would you like to perform another calculation? (y/n) ",
+        "valid_answer": "Hmm... that doesn't look like a valid choice. Must choose 'y' or 'n'",
+        "results": "------------------ RESULTS ------------------------",
+        "goodbye": "Thank you for using the Mortage/Loan Calculator!",
+        "label_loan_amount": "Loan Amount",
+        "label_loan_term": "Loan Term (Months)",
+        "label_apr": "Annual Interest Rate",
+        "label_mpr": "Monthly Interest Rate",
+        "label_m_payment": "Payment Every Month",
+        "label_t_payments": "Total Payments",
+        "label_interests": "Total Interest"
     }
 }
