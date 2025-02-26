@@ -25,9 +25,9 @@ def prompt(key):
     print(f'==> {message}')
 
 
-def get_input(key, symbol):
+def get_input(key):
     message = messages(key, LANG)
-    return input(f"==> {message} {symbol}")
+    return input(f"==> {message}")
 
 
 def is_valid_int(number):
@@ -67,7 +67,7 @@ def loan_term_months(loan_term):
 
 def get_loan_amount():
     while True:
-        loan_amount = get_input('input_loan', '$')
+        loan_amount = get_input('input_loan')
 
         if is_valid_number(loan_amount) and is_valid_number(loan_amount) > 0:
             return float(loan_amount)
@@ -77,7 +77,7 @@ def get_loan_amount():
 
 def get_apr():
     while True:
-        interest_rate = get_input('input_apr', '%')
+        interest_rate = get_input('input_apr')
 
         if is_valid_number(interest_rate) and is_valid_apr(interest_rate):
             return float(interest_rate)
@@ -88,7 +88,7 @@ def get_apr():
 def get_loan_term():
     while True:
         try:
-            years, months = get_input('input_loan_term', '⌛').split('/')
+            years, months = get_input('input_loan_term').split('/')
         except ValueError:
             prompt('valid_loan_term')
             continue
@@ -103,18 +103,35 @@ def calculate_mpr(apr):
     return apr / MONTHS_IN_YEAR
 
 
-def mortgage_calculator(loan_amount, monthly_interest_rate, loan_term):
+def calculate_monthly_payment(loan_amount, monthly_interest_rate, loan_term):
     return (loan_amount * (monthly_interest_rate /
                            (1 - (1 + monthly_interest_rate) **
                             (-loan_term))))
 
 
-def display_results(loan_amount, monthly_payment, loan_term, total_payments, total_interest):
-    # TO-DO: Use json to include this messages
-    print(f'Loan Amount = ${loan_amount:,.2f}')
-    print(f'Payment Every Month = ${monthly_payment:,.2f}')
-    print(f'Total of {loan_term} payments = ${total_payments:,.2f}')
-    print(f'Total interest = ${total_interest:,.2f}')
+def mortgage_calculator(interest_rate, loan_amount, loan_term):
+    annual_interest_rate = interest_rate / 100
+    monthly_interest_rate = calculate_mpr(annual_interest_rate)
+    monthly_payment = calculate_monthly_payment(
+        loan_amount, monthly_interest_rate, loan_term)
+    total_payments = monthly_payment * loan_term
+    total_interest = total_payments - loan_amount
+
+    display_results(loan_amount, monthly_payment, loan_term,
+                    interest_rate, monthly_interest_rate, total_payments, total_interest)
+
+
+def display_results(loan_amount, monthly_payment, loan_term, interest_rate, monthly_interest_rate, total_payments, total_interest):
+    print()
+    print(messages('results'))
+    print(f'{messages("label_loan_amount")} = ${loan_amount:,.2f}')
+    print(f'{messages("label_loan_term", LANG)} = {loan_term}')
+    print(f'{messages("label_apr", LANG)} = % {interest_rate}')
+    print(f'{messages("label_mpr", LANG)} = % {monthly_interest_rate:.4f}')
+    print(f'{messages("label_m_payment", LANG)} = ${monthly_payment:,.2f}')
+    print(f'{messages("label_t_payments", LANG)} = ${total_payments:,.2f}')
+    print(f'{messages("label_interests", LANG)} = ${total_interest:,.2f}')
+    print(messages('hr'))
 
 
 def get_answer():
@@ -122,7 +139,7 @@ def get_answer():
         valid_answers = ['y', 'yes', 'n', 'no']
         return answer in valid_answers
 
-    answer = get_input('another_calculation', '#')
+    answer = get_input('another_calculation')
 
     if is_valid_answer(answer):
         return answer
@@ -140,7 +157,7 @@ def another_calculation(answer):
 def main():
     clear()
     prompt('welcome')
-    prompt('hr')
+    print(messages('hr', LANG))
     print()
     # TO-DO: Add a language selector
 
@@ -151,17 +168,7 @@ def main():
         interest_rate = get_apr()
 
         # Calculations
-        # TO-DO: Move this to a separate function
-        annual_interest_rate = interest_rate / 100
-        monthly_interest_rate = calculate_mpr(annual_interest_rate)
-        monthly_payment = mortgage_calculator(
-            loan_amount, monthly_interest_rate, loan_term)
-        total_payments = monthly_payment * loan_term
-        total_interest = total_payments - loan_amount
-
-        # Output Results
-        display_results(loan_amount, monthly_payment, loan_term,
-                        total_payments, total_interest)
+        mortgage_calculator(interest_rate, loan_amount, loan_term)
 
         # Ask for another calculation
         answer = get_answer()
@@ -169,6 +176,8 @@ def main():
         if not another_calculation(answer):
             break
         clear()
+
+    prompt('goodbye')
 
 
 main()
