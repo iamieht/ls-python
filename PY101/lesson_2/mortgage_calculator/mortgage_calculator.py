@@ -16,6 +16,14 @@ def clear():
     os.system('clear')
 
 
+def set_language(lang='en'):
+    global LANG
+    if lang == 's':
+        LANG = 'es'
+    else:
+        LANG = 'en'
+
+
 def messages(message, lang='en'):
     return MESSAGES[lang][message]
 
@@ -123,8 +131,8 @@ def mortgage_calculator(interest_rate, loan_amount, loan_term):
 
 def display_results(loan_amount, monthly_payment, loan_term, interest_rate, monthly_interest_rate, total_payments, total_interest):
     print()
-    print(messages('results'))
-    print(f'{messages("label_loan_amount")} = ${loan_amount:,.2f}')
+    print(messages('results', LANG))
+    print(f'{messages("label_loan_amount", LANG)} = ${loan_amount:,.2f}')
     print(f'{messages("label_loan_term", LANG)} = {loan_term}')
     print(f'{messages("label_apr", LANG)} = % {interest_rate}')
     print(f'{messages("label_mpr", LANG)} = % {monthly_interest_rate:.4f}')
@@ -151,6 +159,20 @@ def another_calculation(answer):
     return answer == 'y' or answer == 'yes'
 
 
+def get_language():
+    while True:
+        lang = get_input('input_language')
+
+        if is_valid_language(lang):
+            return lang.lower()
+
+        prompt('valid_language')
+
+
+def is_valid_language(lang):
+    return lang in ['E', 'e', 'S', 's']
+
+
 ## Main function ##
 
 
@@ -159,7 +181,11 @@ def main():
     prompt('welcome')
     print(messages('hr', LANG))
     print()
-    # TO-DO: Add a language selector
+
+    while True:
+        lang = get_language()
+        set_language(lang)
+        break
 
     while True:
         # User input
