@@ -116,6 +116,24 @@ def display_results(loan_amount, monthly_payment, loan_term, total_payments, tot
     print(f'Total of {loan_term} payments = ${total_payments:,.2f}')
     print(f'Total interest = ${total_interest:,.2f}')
 
+
+def get_answer():
+    def is_valid_answer(answer):
+        valid_answers = ['y', 'yes', 'n', 'no']
+        return answer in valid_answers
+
+    answer = get_input('another_calculation', '#')
+
+    if is_valid_answer(answer):
+        return answer
+    else:
+        prompt('valid_answer')
+
+
+def another_calculation(answer):
+    return answer == 'y' or answer == 'yes'
+
+
 ## Main function ##
 
 
@@ -126,23 +144,31 @@ def main():
     print()
     # TO-DO: Add a language selector
 
-    # User input
-    loan_amount = get_loan_amount()
-    loan_term = get_loan_term()
-    interest_rate = get_apr()
+    while True:
+        # User input
+        loan_amount = get_loan_amount()
+        loan_term = get_loan_term()
+        interest_rate = get_apr()
 
-    # Calculations
-    # TO-DO: Move this to a separate function
-    annual_interest_rate = interest_rate / 100
-    monthly_interest_rate = calculate_mpr(annual_interest_rate)
-    monthly_payment = mortgage_calculator(
-        loan_amount, monthly_interest_rate, loan_term)
-    total_payments = monthly_payment * loan_term
-    total_interest = total_payments - loan_amount
+        # Calculations
+        # TO-DO: Move this to a separate function
+        annual_interest_rate = interest_rate / 100
+        monthly_interest_rate = calculate_mpr(annual_interest_rate)
+        monthly_payment = mortgage_calculator(
+            loan_amount, monthly_interest_rate, loan_term)
+        total_payments = monthly_payment * loan_term
+        total_interest = total_payments - loan_amount
 
-    # Output Results
-    display_results(loan_amount, monthly_payment, loan_term,
-                    total_payments, total_interest)
+        # Output Results
+        display_results(loan_amount, monthly_payment, loan_term,
+                        total_payments, total_interest)
+
+        # Ask for another calculation
+        answer = get_answer()
+
+        if not another_calculation(answer):
+            break
+        clear()
 
 
 main()
