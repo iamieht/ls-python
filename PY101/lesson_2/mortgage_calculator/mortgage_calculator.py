@@ -116,9 +116,12 @@ def calculate_mpr(apr):
 
 
 def calculate_monthly_payment(loan_amount, monthly_interest_rate, loan_term):
-    return (loan_amount * (monthly_interest_rate /
-                           (1 - (1 + monthly_interest_rate) **
-                            (-loan_term))))
+    if monthly_interest_rate > 0:
+        return (loan_amount * (monthly_interest_rate /
+                               (1 - (1 + monthly_interest_rate) **
+                                (-loan_term))))
+    else:
+        return (loan_amount / loan_term)
 
 
 def mortgage_calculator(interest_rate, loan_amount, loan_term):
