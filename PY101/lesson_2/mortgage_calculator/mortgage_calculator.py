@@ -124,8 +124,7 @@ def calculate_monthly_payment(loan_amount, monthly_interest_rate, loan_term):
         return (loan_amount * (monthly_interest_rate /
                                (1 - (1 + monthly_interest_rate) **
                                 (-loan_term))))
-    else:
-        return (loan_amount / loan_term)
+    return (loan_amount / loan_term)
 
 
 def mortgage_calculator(interest_rate, loan_amount, loan_term):
@@ -176,12 +175,11 @@ def get_answer():
 
         if is_valid_answer(answer):
             return answer
-        else:
-            prompt('valid_answer')
+        prompt('valid_answer')
 
 
 def another_calculation(answer):
-    return answer == 'y' or answer == 'yes'
+    return answer in ('y', 'yes')
 
 
 def get_language():
