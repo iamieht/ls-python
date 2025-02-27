@@ -143,13 +143,13 @@ def mortgage_calculator(interest_rate, loan_amount, loan_term):
 def display_results(loan_amount, monthly_payment, loan_term, interest_rate, monthly_interest_rate, total_payments, total_interest):
     print()
     print(messages('results', LANG))
-    print(f'{messages("label_loan_amount", LANG)} = ${loan_amount:,.2f}')
-    print(f'{messages("label_loan_term", LANG)} = {loan_term}')
-    print(f'{messages("label_apr", LANG)} = % {interest_rate}')
-    print(f'{messages("label_mpr", LANG)} = % {monthly_interest_rate:.4f}')
-    print(f'{messages("label_m_payment", LANG)} = ${monthly_payment:,.2f}')
-    print(f'{messages("label_t_payments", LANG)} = ${total_payments:,.2f}')
-    print(f'{messages("label_interests", LANG)} = ${total_interest:,.2f}')
+    print(f'{messages("label_loan_amount", LANG).ljust(30)} = ${loan_amount:,.2f}')
+    print(f'{messages("label_loan_term", LANG).ljust(30)} = {loan_term}')
+    print(f'{messages("label_apr", LANG).ljust(30)} = % {interest_rate}')
+    print(f'{messages("label_mpr", LANG).ljust(30)} = % {monthly_interest_rate:.4f}')
+    print(f'{messages("label_m_payment", LANG).ljust(30)} = ${monthly_payment:,.2f}')
+    print(f'{messages("label_t_payments", LANG).ljust(30)} = ${total_payments:,.2f}')
+    print(f'{messages("label_interests", LANG).ljust(30)} = ${total_interest:,.2f}')
     print(messages('hr'))
 
 
