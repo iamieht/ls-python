@@ -62,6 +62,10 @@ def is_valid_number(number):
     return is_valid_int(number) or is_valid_float(number)
 
 
+def is_valid_amount(number):
+    return is_valid_number(number) and float(number) > 0
+
+
 def is_valid_apr(number):
     return is_valid_float(number) and 0 <= float(number) <= 100
 
@@ -77,10 +81,10 @@ def get_loan_amount():
     while True:
         loan_amount = get_input('input_loan')
 
-        if is_valid_number(loan_amount) and is_valid_number(loan_amount) > 0:
+        if is_valid_amount(loan_amount):
             return float(loan_amount)
 
-        prompt('valid_number')
+        prompt('valid_amount')
 
 
 def get_apr():
