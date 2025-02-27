@@ -144,15 +144,16 @@ def display_results(loan_amount, monthly_payment, loan_term, interest_rate, mont
 
 def get_answer():
     def is_valid_answer(answer):
-        valid_answers = ['y', 'yes', 'n', 'no']
+        valid_answers = ['y', 'yes', 'Y', 'YES', 'n', 'no', 'N', 'NO']
         return answer in valid_answers
 
-    answer = get_input('another_calculation')
+    while True:
+        answer = get_input('another_calculation')
 
-    if is_valid_answer(answer):
-        return answer
-    else:
-        prompt('valid_answer')
+        if is_valid_answer(answer):
+            return answer
+        else:
+            prompt('valid_answer')
 
 
 def another_calculation(answer):
