@@ -9,7 +9,7 @@
         "valid_number": "Hmm... that doesn't look like a valid positive number",
         "valid_amount": "The Loan Amount must be greater than 0.",
         "valid_interest_rate": "Hmm... interest rate must be a number > 0 and <= 100",
-        "valid_loan_term": "Hmm... that doesn't look like a valid loan term. The format is Year/Months or Year Months",
+        "valid_loan_term": "Hmm... that doesn't look like a valid loan term. The format is Year/Months",
         "hr": "----------------------------------------------------",
         "another_calculation": "Would you like to perform another calculation? (y/n) ",
         "valid_answer": "Hmm... that doesn't look like a valid choice. Must choose 'y' or 'n'",
