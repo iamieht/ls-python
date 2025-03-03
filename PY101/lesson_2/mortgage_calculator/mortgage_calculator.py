@@ -5,6 +5,7 @@ import json
 LANG = 'en'
 MONTHS_IN_YEAR = 12
 
+
 # Load the messages from the JSON file
 with open('mortgage_messages.json', 'r') as file:
     MESSAGES = json.load(file)
@@ -166,9 +167,9 @@ def display_results(loan_amount, monthly_payment,
 
 
 def get_answer():
-    def is_valid_answer(answer):
-        valid_answers = ['y', 'yes', 'Y', 'YES', 'n', 'no', 'N', 'NO']
-        return answer in valid_answers
+    # def is_valid_answer(answer):
+    #     valid_answers = ['y', 'yes', 'Y', 'YES', 'n', 'no', 'N', 'NO']
+    #     return answer in valid_answers
 
     while True:
         answer = get_input('another_calculation')
@@ -177,9 +178,14 @@ def get_answer():
             return answer
         prompt('valid_answer')
 
+def is_valid_answer(answer):
+    valid_answers = ['y', 'yes', 'Y', 'YES', 'n', 'no', 'N', 'NO']
+    return answer in valid_answers
+
 
 def another_calculation(answer):
-    return answer in ('y', 'yes')
+    yes = ['y', 'yes', 'Y', 'YES']
+    return is_valid_answer(answer) and answer in yes
 
 
 def get_language():
