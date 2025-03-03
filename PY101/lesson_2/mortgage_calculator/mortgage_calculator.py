@@ -67,8 +67,11 @@ def is_valid_amount(number):
     return is_valid_number(number) and float(number) > 0
 
 
-def is_valid_loan_term(number):
-    return is_valid_number(number) and int(number) >= 0
+def is_valid_month(number):
+    return is_valid_int(number) and int(number) >= 0
+
+def is_valid_year(number):
+    return is_valid_int(number) and int(number) > 0
 
 
 def is_valid_apr(number):
@@ -110,7 +113,7 @@ def get_loan_term():
             prompt('valid_loan_term')
             continue
 
-        if is_valid_loan_term(years) and is_valid_loan_term(months):
+        if is_valid_year(years) and is_valid_month(months):
             return loan_term_months((years, months))
 
         prompt('valid_loan_term')
