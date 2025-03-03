@@ -139,40 +139,42 @@ def mortgage_calculator(interest_rate, loan_amount, loan_term):
     total_payments = monthly_payment * loan_term
     total_interest = total_payments - loan_amount
 
-    display_results(loan_amount, monthly_payment,
-                    loan_term, interest_rate,
-                    monthly_interest_rate, total_payments,
-                    total_interest)
+    # Initialize loan object
+    loan_obj = {
+        "loan_amount": loan_amount,
+        "monthly_payment": monthly_payment,
+        "loan_term": loan_term,
+        "interest_rate": interest_rate,
+        "monthly_interest_rate": monthly_interest_rate, 
+        "total_payments": total_payments,
+        "total_interest": total_interest,
+    }
+
+    display_results(loan_obj)
 
 
-def display_results(loan_amount, monthly_payment,
-                    loan_term, interest_rate,
-                    monthly_interest_rate, total_payments,
-                    total_interest):
+def display_results(loan_obj):
 
     print()
     print(messages('results', LANG))
     print(f'''{messages("label_loan_amount", LANG)
-               .ljust(30)} = ${loan_amount:,.2f}''')
+               .ljust(30)} = ${loan_obj['loan_amount']:,.2f}''')
     print(f'''{messages("label_loan_term", LANG)
-               .ljust(30)} = {loan_term}''')
+               .ljust(30)} = {loan_obj['loan_term']}''')
     print(f'''{messages("label_apr", LANG)
-               .ljust(30)} = % {interest_rate}''')
+               .ljust(30)} = % {loan_obj['interest_rate']}''')
     print(f'''{messages("label_mpr", LANG)
-               .ljust(30)} = % {monthly_interest_rate:.4f}''')
+               .ljust(30)} = % {loan_obj['monthly_interest_rate']:.4f}''')
     print(f'''{messages("label_m_payment", LANG)
-               .ljust(30)} = ${monthly_payment:,.2f}''')
+               .ljust(30)} = ${loan_obj['monthly_payment']:,.2f}''')
     print(f'''{messages("label_t_payments", LANG)
-               .ljust(30)} = ${total_payments:,.2f}''')
+               .ljust(30)} = ${loan_obj['total_payments']:,.2f}''')
     print(f'''{messages("label_interests", LANG)
-               .ljust(30)} = ${total_interest:,.2f}''')
+               .ljust(30)} = ${loan_obj['total_interest']:,.2f}''')
     print(messages('hr'))
 
 
 def get_answer():
-    # def is_valid_answer(answer):
-    #     valid_answers = ['y', 'yes', 'Y', 'YES', 'n', 'no', 'N', 'NO']
-    #     return answer in valid_answers
 
     while True:
         answer = get_input('another_calculation')
@@ -213,6 +215,7 @@ def main():
     prompt('welcome')
     print(messages('hr', LANG))
     print()
+
 
     while True:
         lang = get_language()
