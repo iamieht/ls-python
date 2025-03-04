@@ -139,6 +139,8 @@ def rpsls():
             player_choice = get_player_choice()
             computer_choice = get_computer_choice()
 
+            clear()
+            
             display_choices(player_choice, computer_choice)
             display_result(player_choice, computer_choice, scores)
         
