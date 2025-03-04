@@ -83,11 +83,19 @@ def display_choices(player, computer):
           f' and Computer chose: {computer}')
     print()
 
-def is_winner(player_choice, computer_choice):
-    return computer_choice in RPSLS_RULES[player_choice]
+def is_winner(choice1, choice2):
+    return choice2 in RPSLS_RULES[choice1]
 
 def display_winner(player, computer):
-    pass
+    player = shortcut_to_choice(player)
+    
+    if is_winner(player, computer):
+        prompt('player_wins')
+    elif is_winner(computer, player):
+        prompt('pc_wins')
+    else:
+        prompt('tie')
+
 
 def set_score(winner):
     pass
@@ -103,6 +111,7 @@ def rpsls():
     computer_choice = get_computer_choice()
 
     display_choices(player_choice, computer_choice)
+    display_winner(player_choice, computer_choice)
 
 rpsls()
 
