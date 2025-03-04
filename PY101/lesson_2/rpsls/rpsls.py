@@ -83,6 +83,9 @@ def display_choices(player, computer):
           f' and Computer chose: {computer}')
     print()
 
+def is_winner(player_choice, computer_choice):
+    return computer_choice in RPSLS_RULES[player_choice]
+
 def display_winner(player, computer):
     pass
 
@@ -102,4 +105,5 @@ def rpsls():
     display_choices(player_choice, computer_choice)
 
 rpsls()
+
 
