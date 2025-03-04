@@ -132,7 +132,6 @@ def rpsls():
     while True:
         scores = init_scores()
         while True:
-            # if scores['player'] == WINS or scores['computer'] == WINS:
             if WINS in (scores['player'], scores['computer']):
                 break
 
