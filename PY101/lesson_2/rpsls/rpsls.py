@@ -88,7 +88,7 @@ def is_winner(choice1, choice2):
 
 def display_result(player, computer, scores):
     player = shortcut_to_choice(player)
-    
+
     if is_winner(player, computer):
         prompt('player_wins')
         set_score('player', scores)
@@ -103,7 +103,7 @@ def init_scores():
         'player': 0,
         'computer': 0
     }
-    
+
     return scores
 
 
@@ -117,7 +117,8 @@ def display_score(scores):
 
 def display_final_score(scores):
     print()
-    print(f'Final Score = Player {scores["player"]} / Computer {scores["computer"]}')
+    print(f'Final Score = Player: {scores["player"]}'
+        f' / Computer: {scores["computer"]}')
 
 def play_again():
     print()
@@ -131,7 +132,8 @@ def rpsls():
     while True:
         scores = init_scores()
         while True:
-            if scores['player'] == WINS or scores['computer'] == WINS:
+            # if scores['player'] == WINS or scores['computer'] == WINS:
+            if WINS in (scores['player'], scores['computer']):
                 break
 
             display_score(scores)
@@ -140,17 +142,15 @@ def rpsls():
             computer_choice = get_computer_choice()
 
             clear()
-            
+
             display_choices(player_choice, computer_choice)
             display_result(player_choice, computer_choice, scores)
-        
+
         display_final_score(scores)
-        
+
         # Play Again
         if not play_again():
             break
-            
+
         clear()
 rpsls()
-
-
