@@ -86,33 +86,69 @@ def display_choices(player, computer):
 def is_winner(choice1, choice2):
     return choice2 in RPSLS_RULES[choice1]
 
-def display_winner(player, computer):
+def display_result(player, computer, scores):
     player = shortcut_to_choice(player)
     
     if is_winner(player, computer):
         prompt('player_wins')
+        set_score('player', scores)
     elif is_winner(computer, player):
         prompt('pc_wins')
+        set_score('computer', scores)
     else:
         prompt('tie')
 
+def init_scores():
+    scores = {
+        'player': 0,
+        'computer': 0
+    }
+    
+    return scores
 
-def set_score(winner):
-    pass
 
-def display_score():
-    pass
+def set_score(winner, scores):
+    scores[winner] += 1
+
+def display_score(scores):
+    print()
+    print(f'Score = Player {scores["player"]} / Computer {scores["computer"]}')
+    print()
+
+def display_final_score(scores):
+    print()
+    print(f'Final Score = Player {scores["player"]} / Computer {scores["computer"]}')
+
+def play_again():
+    print()
+    answer = get_user_input('play_again').lower()
+    return answer in ['y', 'yes']
 
 def rpsls():
     clear()
     prompt("welcome")
 
-    player_choice = get_player_choice()
-    computer_choice = get_computer_choice()
+    while True:
+        scores = init_scores()
+        while True:
+            if scores['player'] == WINS or scores['computer'] == WINS:
+                break
 
-    display_choices(player_choice, computer_choice)
-    display_winner(player_choice, computer_choice)
+            display_score(scores)
 
+            player_choice = get_player_choice()
+            computer_choice = get_computer_choice()
+
+            display_choices(player_choice, computer_choice)
+            display_result(player_choice, computer_choice, scores)
+        
+        display_final_score(scores)
+        
+        # Play Again
+        if not play_again():
+            break
+            
+        clear()
 rpsls()
 
 
