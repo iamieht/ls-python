@@ -57,10 +57,31 @@ def get_player_choice():
         prompt('invalid_choice')
 
 def get_computer_choice():
-    pass
+    return random.choice(VALID_CHOICES)
 
 def is_valid_choice(choice):
     return choice in VALID_CHOICES or choice in VALID_SHORT_CUTS
+
+def shortcut_to_choice(choice):
+    match choice:
+        case 'r':
+            return VALID_CHOICES[0]
+        case 'p':
+            return VALID_CHOICES[1]
+        case 's':
+            return VALID_CHOICES[2]
+        case 'l':
+            return VALID_CHOICES[3]
+        case 'sp':
+            return VALID_CHOICES[4]
+        case _:
+            return choice
+
+def display_choices(player, computer):
+    print()
+    print(f'You chose: {shortcut_to_choice(player)}'
+          f' and Computer chose: {computer}')
+    print()
 
 def display_winner(player, computer):
     pass
@@ -74,6 +95,11 @@ def display_score():
 def rpsls():
     clear()
     prompt("welcome")
+
+    player_choice = get_player_choice()
+    computer_choice = get_computer_choice()
+
+    display_choices(player_choice, computer_choice)
 
 rpsls()
 
