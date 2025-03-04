@@ -1,0 +1,7 @@
+{
+    "en": {
+        "welcome": "Welcome to Rock, Paper, Scissors, Lizard, Spock!",
+        "choice": "Choose one: (r)ock, (p)aper, (s)cissors, (l)izard, (sp)ock",
+        "invalid_choice": "Hmm... That's not a valid choice!, Please try again"
+    }
+}
