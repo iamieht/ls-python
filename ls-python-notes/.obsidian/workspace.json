@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PY10X/Notes/1.Data_Types.md",
+                "file": "PY10X/Study_Guide/1.naming_conventions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.Data_Types"
+              "title": "1.naming_conventions"
             }
           }
         ]
@@ -161,8 +161,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fe8be1d9e45ee854",
+  "active": "4919dc2ad7570e8f",
   "lastOpenFiles": [
+    "PY10X/Notes/1.Data_Types.md",
+    "PY10X/Study_Guide/1.naming_conventions.md",
     "PY10X/Notes",
     "PY10X/Study_Guide",
     "PY10X/Notes/99.Code_Snippets.md",
@@ -174,7 +176,6 @@
     "PY10X/Notes/5.Functions_and_Methods.md",
     "PY10X/Notes/3.Variables.md",
     "PY10X/Notes/2.Basic_Operations.md",
-    "PY10X/Notes/1.Data_Types.md",
     "PY10X",
     "PY10X",
     "Welcome.md"
