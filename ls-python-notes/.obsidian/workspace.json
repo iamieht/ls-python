@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PY10X/Study_Guide/4.strings.md",
+                "file": "PY10X/Study_Guide/2.type_coercions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4.strings"
+              "title": "2.type_coercions"
             }
           }
         ]
@@ -183,8 +183,8 @@
   },
   "active": "dd75c2d6f401f988",
   "lastOpenFiles": [
-    "PY10X/Notes/2.Basic_Operations.md",
     "PY10X/Study_Guide/4.strings.md",
+    "PY10X/Notes/2.Basic_Operations.md",
     "PY10X/Notes/1.Data_Types.md",
     "PY10X/Notes/4.Input_Output.md",
     "PY10X/Study_Guide/3.numbers.md",
