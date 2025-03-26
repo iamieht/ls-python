@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PY10X/Notes/2.Basic_Operations.md",
+                "file": "PY10X/Notes/4.Input_Output.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2.Basic_Operations"
+              "title": "4.Input_Output"
             }
           }
         ]
@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PY10X/Study_Guide/2.type_coercions.md",
+                "file": "PY10X/Study_Guide/3.numbers.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2.type_coercions"
+              "title": "3.numbers"
             }
           }
         ]
@@ -183,20 +183,23 @@
   },
   "active": "dd75c2d6f401f988",
   "lastOpenFiles": [
-    "PY10X/Notes/2.Basic_Operations.md",
     "PY10X/Study_Guide/2.type_coercions.md",
+    "PY10X/Practice/1.mock_exam_1.md",
+    "PY10X/Notes/4.Input_Output.md",
+    "PY10X/Practice",
+    "PY10X/Study_Guide/3.numbers.md",
+    "PY10X/Notes/3.Variables.md",
+    "PY10X/Notes/2.Basic_Operations.md",
     "PY10X/Notes/1.Data_Types.md",
     "PY10X/Study_Guide/1.naming_conventions.md",
     "PY10X/Notes",
     "PY10X/Study_Guide",
     "PY10X/Notes/99.Code_Snippets.md",
     "PY10X/Notes/6.Flow_Control.md",
-    "PY10X/Notes/4.Input_Output.md",
     "PY10X/Notes/8.Using_Collections.md",
     "PY10X/Notes/7.Intro_to_Collections.md",
     "PY10X/Notes/9.Loops_and_Iterating.md",
     "PY10X/Notes/5.Functions_and_Methods.md",
-    "PY10X/Notes/3.Variables.md",
     "PY10X",
     "PY10X",
     "Welcome.md"
